@@ -2,7 +2,7 @@
 
 // 349. Intersection of Two Arrays
 
-class Solution {
+class Problem_349 {
     public int[] intersection(int[] nums1, int[] nums2) {
         int size=Math.min(nums1.length,nums2.length);
         int[] ans=new int[size];
