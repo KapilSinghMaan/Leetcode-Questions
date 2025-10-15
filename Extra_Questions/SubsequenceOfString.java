@@ -1,3 +1,7 @@
+// Given a String 'S' print all possible subsequences of the String.(order of output does not matter)
+
+// Example: "abc" --> "abc","ab","ac","bc","a","b","c",""
+
 package Extra_Questions;
 
 public class SubsequenceOfString {
