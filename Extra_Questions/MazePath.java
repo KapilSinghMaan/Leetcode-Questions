@@ -2,8 +2,6 @@
 
 // Example: for m=3 and n=3 there are 6 possible paths.
 
-package Extra_Questions;
-
 public class MazePath {
     public static int count=0;
     public static void fn(int i,int j,int m,int n,String output)
