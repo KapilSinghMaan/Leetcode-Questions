@@ -2,8 +2,6 @@
 
 // Example: input--> "abcxxbcxacxdx" output --> "abcbcacd"
 
-package Extra_Questions;
-
 public class RemoveOccuranceOfX {
     public static void fn(String str, int idx, String output) {
         if (idx == str.length() - 1) {
