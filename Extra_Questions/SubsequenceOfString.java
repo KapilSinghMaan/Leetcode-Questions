@@ -2,8 +2,6 @@
 
 // Example: "abc" --> "abc","ab","ac","bc","a","b","c",""
 
-package Extra_Questions;
-
 public class SubsequenceOfString {
     public static void fn(String str, int idx, String output) {
         if (idx == str.length()) {
