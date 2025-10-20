@@ -17,7 +17,24 @@
 // For each input set, print all possible decodings for the input string.
 
 public class DecodeMessage {
+    public static void fn(String str, int idx, String Output) {
+        if (idx >= str.length()) {
+            System.out.println(Output);
+            return;
+        }
+        int singleDigit = str.charAt(idx) - '0';
+        if (singleDigit >= 1 && singleDigit <= 9) {
+            fn(str, idx + 1, Output + (char) ('A' + singleDigit - 1));
+        }
+        if (idx + 1 < str.length()) {
+            int doubleDigit = Integer.parseInt(str.substring(idx, idx + 2));
+            if (doubleDigit >= 10 && doubleDigit <= 26) {
+                fn(str, idx + 2, Output + (char) ('A' + doubleDigit - 1));
+            }
+        }
+    }
+
     public static void main(String[] args) {
-        
+        fn("25114", 0, "");
     }
 }
