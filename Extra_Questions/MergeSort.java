@@ -25,4 +25,8 @@ public class MergeSort {
         }
         return arr;
     }
+
+    public static void main(String[] args) {
+        
+    }
 }
