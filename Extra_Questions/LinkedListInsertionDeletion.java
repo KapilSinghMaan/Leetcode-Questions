@@ -74,6 +74,15 @@ public class LinkedListInsertionDeletion {
         temp.NEXT = nn;
     }
 
+    public int removeFirst(){
+        if (this.HEAD==null) {
+            return -1;
+        }
+        int rv=this.HEAD.DATA;
+        this.HEAD=this.HEAD.NEXT;
+        return rv;
+    }
+
     public static void main(String[] args) {
 
         LinkedListInsertionDeletion ll = new LinkedListInsertionDeletion();
@@ -85,6 +94,8 @@ public class LinkedListInsertionDeletion {
         ll.addLast(40);
         ll.display();
         ll.addPosition(99, 3);
+        ll.display();
+        System.out.println("Removed : "+ll.removeFirst());
         ll.display();
     }
 }
