@@ -4,5 +4,26 @@
 
 public class LinkedListInsertionDeletion {
 
+    class Node{
+        int DATA;
+        Node NEXT;
+
+        Node(int data){
+            this.DATA=data;
+        }
+    }
+
+    Node HEAD;
+
+    public void display(){
+        Node temp=this.HEAD;
+
+        while (temp!=null) {
+            System.out.print(temp.DATA+ " ");
+            temp=temp.NEXT;
+        }
+        System.out.println();
+    }
+
     
 }
