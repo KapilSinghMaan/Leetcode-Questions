@@ -16,6 +16,12 @@ public class LinkedListInsertionDeletion {
     Node HEAD;
 
     public void display(){
+
+        if (this.HEAD==null) {
+            System.out.println("There is no elements");
+            return;
+        }
+
         Node temp=this.HEAD;
 
         while (temp!=null) {
@@ -31,14 +37,29 @@ public class LinkedListInsertionDeletion {
         this.HEAD=nn;
     }
 
+    public void addLast(int data){
+        if (this.HEAD==null) {
+            addBeginning(data);
+            return;
+        }
+        Node nn =new Node(data);
+        Node temp=this.HEAD;
+
+        while (temp.NEXT!=null) {
+            temp=temp.NEXT;
+        }
+        temp.NEXT=nn;
+    }
+
     public static void main(String[] args) {
         
         LinkedListInsertionDeletion ll=new LinkedListInsertionDeletion();
         ll.addBeginning(10);
         ll.addBeginning(30);
         ll.addBeginning(50);
-        ll.addBeginning(70);
-        ll.addBeginning(90);
+        ll.display();
+        ll.addLast(20);
+        ll.addLast(40);
         ll.display();
     }
 }
