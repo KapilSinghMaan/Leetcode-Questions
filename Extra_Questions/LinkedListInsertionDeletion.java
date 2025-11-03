@@ -74,25 +74,41 @@ public class LinkedListInsertionDeletion {
         temp.NEXT = nn;
     }
 
-    public int removeFirst(){
-        if (this.HEAD==null) {
+    public int removeFirst() {
+        if (this.HEAD == null) {
             return -1;
         }
-        int rv=this.HEAD.DATA;
-        this.HEAD=this.HEAD.NEXT;
+        int rv = this.HEAD.DATA;
+        this.HEAD = this.HEAD.NEXT;
         return rv;
     }
 
-    public int removeLast(){
-        if (this.HEAD==null) {
+    public int removeAt(int idx) {
+        if (idx < 0) {
             return -1;
         }
-        Node temp=this.HEAD;
-        while (temp.NEXT.NEXT!=null) {
-            temp=temp.NEXT;
+        if (idx == 0) {
+            removeFirst();
         }
-        int rv=temp.NEXT.DATA;
-        temp.NEXT=null;
+        Node temp = this.HEAD;
+        for (int i = 0; i < idx - 1; i++) {
+            temp = temp.NEXT;
+        }
+        int rv = temp.NEXT.DATA;
+        temp.NEXT = temp.NEXT.NEXT;
+        return rv;
+    }
+
+    public int removeLast() {
+        if (this.HEAD == null) {
+            return -1;
+        }
+        Node temp = this.HEAD;
+        while (temp.NEXT.NEXT != null) {
+            temp = temp.NEXT;
+        }
+        int rv = temp.NEXT.DATA;
+        temp.NEXT = null;
         return rv;
     }
 
@@ -108,9 +124,11 @@ public class LinkedListInsertionDeletion {
         ll.display();
         ll.addPosition(99, 3);
         ll.display();
-        System.out.println("Removed first: "+ll.removeFirst());
+        System.out.println("Removed first: " + ll.removeFirst());
         ll.display();
-        System.out.println("Removed last: "+ll.removeLast());
+        System.out.println("Removed At idx 3: " + ll.removeAt(2));
+        ll.display();
+        System.out.println("Removed last: " + ll.removeLast());
         ll.display();
     }
 }
