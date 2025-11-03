@@ -25,5 +25,20 @@ public class LinkedListInsertionDeletion {
         System.out.println();
     }
 
-    
+    public void addBeginning(int data){
+        Node nn=new Node(data);
+        nn.NEXT=this.HEAD;
+        this.HEAD=nn;
+    }
+
+    public static void main(String[] args) {
+        
+        LinkedListInsertionDeletion ll=new LinkedListInsertionDeletion();
+        ll.addBeginning(10);
+        ll.addBeginning(30);
+        ll.addBeginning(50);
+        ll.addBeginning(70);
+        ll.addBeginning(90);
+        ll.display();
+    }
 }
