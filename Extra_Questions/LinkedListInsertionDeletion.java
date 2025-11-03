@@ -4,62 +4,87 @@
 
 public class LinkedListInsertionDeletion {
 
-    class Node{
+    class Node {
         int DATA;
         Node NEXT;
 
-        Node(int data){
-            this.DATA=data;
+        Node(int data) {
+            this.DATA = data;
         }
     }
 
     Node HEAD;
 
-    public void display(){
+    public void display() {
 
-        if (this.HEAD==null) {
+        if (this.HEAD == null) {
             System.out.println("There is no elements");
             return;
         }
 
-        Node temp=this.HEAD;
+        Node temp = this.HEAD;
 
-        while (temp!=null) {
-            System.out.print(temp.DATA+ " ");
-            temp=temp.NEXT;
+        while (temp != null) {
+            System.out.print(temp.DATA + " ");
+            temp = temp.NEXT;
         }
         System.out.println();
     }
 
-    public void addBeginning(int data){
-        Node nn=new Node(data);
-        nn.NEXT=this.HEAD;
-        this.HEAD=nn;
+    public void addBeginning(int data) {
+        Node nn = new Node(data);
+        nn.NEXT = this.HEAD;
+        this.HEAD = nn;
     }
 
-    public void addLast(int data){
-        if (this.HEAD==null) {
+    public void addPosition(int data, int idx) {
+
+        if (idx < 0) {
+            System.out.println("Negative index not allowed");
+            return;
+        }
+        if (idx == 0) {
             addBeginning(data);
             return;
         }
-        Node nn =new Node(data);
-        Node temp=this.HEAD;
 
-        while (temp.NEXT!=null) {
-            temp=temp.NEXT;
+        Node nn = new Node(data);
+        Node temp = this.HEAD;
+
+        for (int i = 0; i < idx - 1; i++) {
+            temp = temp.NEXT;
         }
-        temp.NEXT=nn;
+
+        Node forward = temp.NEXT;
+        temp.NEXT = nn;
+        nn.NEXT = forward;
+    }
+
+    public void addLast(int data) {
+        if (this.HEAD == null) {
+            addBeginning(data);
+            return;
+        }
+        Node nn = new Node(data);
+        Node temp = this.HEAD;
+
+        while (temp.NEXT != null) {
+            temp = temp.NEXT;
+        }
+        temp.NEXT = nn;
     }
 
     public static void main(String[] args) {
-        
-        LinkedListInsertionDeletion ll=new LinkedListInsertionDeletion();
+
+        LinkedListInsertionDeletion ll = new LinkedListInsertionDeletion();
         ll.addBeginning(10);
         ll.addBeginning(30);
         ll.addBeginning(50);
         ll.display();
         ll.addLast(20);
         ll.addLast(40);
+        ll.display();
+        ll.addPosition(99, 3);
         ll.display();
     }
 }
