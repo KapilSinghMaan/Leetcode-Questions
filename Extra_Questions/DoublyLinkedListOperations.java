@@ -81,14 +81,31 @@ public class DoublyLinkedListOperations {
 
     }
 
-    public int removeBeginning(){
-        if (HEAD==null) {
+    public int removeBeginning() {
+        if (HEAD == null) {
             return -1;
         }
 
-        int rv=HEAD.data;
-        HEAD=HEAD.next;
-        HEAD.prev=null;
+        int rv = HEAD.data;
+        HEAD = HEAD.next;
+        HEAD.prev = null;
+
+        return rv;
+    }
+
+    public int removeEnd() {
+        if (HEAD == null) {
+            return -1;
+        }
+
+        Node temp = HEAD;
+
+        while (temp.next.next != null) {
+            temp = temp.next;
+        }
+
+        int rv = temp.next.data;
+        temp.next = null;
 
         return rv;
     }
@@ -100,6 +117,7 @@ public class DoublyLinkedListOperations {
             System.out.print(temp.data + " ");
             temp = temp.next;
         }
+        System.out.println();
     }
 
     public static void main(String[] args) {
@@ -123,10 +141,12 @@ public class DoublyLinkedListOperations {
 
         dll.display();
 
-        System.out.println();
-        System.out.println( "Removed : " + dll.removeBeginning());
-        System.out.println( "Removed : " + dll.removeBeginning());
-
+        System.out.println("Removed start : " + dll.removeBeginning());
+        System.out.println("Removed start : " + dll.removeBeginning());
+        dll.display();
+        
+        System.out.println("Removed last : " + dll.removeEnd());
+        System.out.println("Removed last : " + dll.removeEnd());
         dll.display();
     }
 }
