@@ -93,6 +93,31 @@ public class DoublyLinkedListOperations {
         return rv;
     }
 
+    public int removeAt(int idx){
+
+        if (idx<0) {
+            return -1;
+        }
+
+        if (idx==0) {
+            return removeBeginning();
+        }
+
+        Node temp=HEAD;
+
+        for (int i = 0; i < idx-1 ; i++) {
+            temp=temp.next;
+        }
+
+        int rv = temp.next.data;
+
+        temp.next=temp.next.next;
+        Node forward=temp.next;
+        forward.prev=temp;
+
+        return rv;
+    }
+
     public int removeEnd() {
         if (HEAD == null) {
             return -1;
@@ -144,7 +169,10 @@ public class DoublyLinkedListOperations {
         System.out.println("Removed start : " + dll.removeBeginning());
         System.out.println("Removed start : " + dll.removeBeginning());
         dll.display();
-        
+
+        System.out.println("Removed at 3 : " + dll.removeAt(3));
+        dll.display();
+
         System.out.println("Removed last : " + dll.removeEnd());
         System.out.println("Removed last : " + dll.removeEnd());
         dll.display();
