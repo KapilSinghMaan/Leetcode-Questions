@@ -81,6 +81,18 @@ public class DoublyLinkedListOperations {
 
     }
 
+    public int removeBeginning(){
+        if (HEAD==null) {
+            return -1;
+        }
+
+        int rv=HEAD.data;
+        HEAD=HEAD.next;
+        HEAD.prev=null;
+
+        return rv;
+    }
+
     public void display() {
         Node temp = HEAD;
 
@@ -108,6 +120,12 @@ public class DoublyLinkedListOperations {
         dll.insertEnding(30);
         dll.insertEnding(40);
         dll.insertEnding(50);
+
+        dll.display();
+
+        System.out.println();
+        System.out.println( "Removed : " + dll.removeBeginning());
+        System.out.println( "Removed : " + dll.removeBeginning());
 
         dll.display();
     }
