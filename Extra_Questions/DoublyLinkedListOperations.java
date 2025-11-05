@@ -32,7 +32,35 @@ public class DoublyLinkedListOperations {
 
         newNode.next = HEAD;
         HEAD = newNode;
-    }    
+    }
+
+    public void insertAt(int data, int idx) {
+        if (idx == 0 || HEAD == null) {
+            insertBeginning(data);
+            return;
+        }
+
+        Node newNode = new Node(data);
+        int count = 0;
+        Node temp = HEAD;
+        while (temp != null && count < idx) {
+            temp = temp.next;
+            count++;
+        }
+
+        if (temp == null) {
+            insertEnding(data);
+            return;
+        }
+
+        newNode.prev = temp.prev;
+        newNode.next = temp;
+        if (temp.prev != null) {
+            temp.prev.next = newNode;
+        }
+        temp.prev = newNode;
+
+    }
 
     public void insertEnding(int data) {
 
@@ -71,8 +99,11 @@ public class DoublyLinkedListOperations {
         dll.insertBeginning(65);
         dll.insertBeginning(75);
         dll.insertBeginning(85);
-  
-         dll.insertEnding(10);
+
+        dll.insertAt(33, 2);
+        dll.insertAt(66, 4);
+
+        dll.insertEnding(10);
         dll.insertEnding(20);
         dll.insertEnding(30);
         dll.insertEnding(40);
