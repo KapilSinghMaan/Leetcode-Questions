@@ -22,7 +22,7 @@ class ListNode {
 public class Problem_328 {
 
     public ListNode oddEvenList(ListNode head) {
-
+        return null;
     }
 
 }
