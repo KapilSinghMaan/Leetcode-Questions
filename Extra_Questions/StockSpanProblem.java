@@ -8,7 +8,36 @@
 // Output:1 1 2 4 5 1
 // Explanation: Traversing the given input span for 10 will be 1, 4 is smaller than 10 so the span will be 1, 5 is greater than 4 so the span will be 2 and so on. Hence the output will be 1 1 2 4 5 1.
 
+import java.util.Stack;
+
 public class StockSpanProblem {
 
-    
+    public static int[] calculateSpan(int[] price) {
+        int n = price.length;
+        int[] span = new int[n];
+        Stack<Integer> stack = new Stack<>();
+
+        for (int i = 0; i < n; i++) {
+            while (!stack.isEmpty() && price[i] >= price[stack.peek()]) {
+                stack.pop();
+            }
+
+            span[i] = stack.isEmpty() ? (i + 1) : (i - stack.peek());
+
+            stack.push(i);
+        }
+
+        return span;
+    }
+
+    public static void main(String[] args) {
+        int[] price = { 100, 80, 60, 70, 60, 75, 85 };
+        int[] span = calculateSpan(price);
+        System.out.print("Output: ");
+        for (int s : span) {
+            System.out.print(s + " ");
+        }
+        System.out.println();
+    }
+
 }
