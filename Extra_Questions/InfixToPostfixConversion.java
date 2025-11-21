@@ -2,6 +2,8 @@
 
 // Infix to postfix conversion is the process of transforming an arithmetic expression where operators are placed between operands (infix) into a format where operators follow their operands (postfix), enabling easier computation by machines.
 
+// Example : A*(B+C)/D
+
 import java.util.Stack;
 
 public class InfixToPostfixConversion {
