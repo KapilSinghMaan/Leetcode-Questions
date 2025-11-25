@@ -1,3 +1,8 @@
+// Infix Evaluation
+
+// Example : 2*(5*(3+6))/5-2
+// result : 16
+
 import java.util.Stack;
 
 class InfixEvaluation {
