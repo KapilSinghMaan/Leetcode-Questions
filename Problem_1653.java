@@ -6,6 +6,19 @@ import java.util.Stack;
 
 public class Problem_1653 {
      public int minimumDeletions(String s) {
-       
+        int n=s.length();
+        Stack<Character> stack=new Stack<>();
+        int del=0;
+
+        for (int i = 0; i < n; i++) {
+            if (!stack.isEmpty() && stack.peek()=='b'&& s.charAt(i)=='a') {
+                stack.pop();
+                del++;
+            } else {
+                stack.push(s.charAt(i));
+            }
+        }
+
+        return del;
     }
 }
