@@ -23,7 +23,6 @@ class TreeNode {
 
 public class Problem_1038 {
     int pre = 0;
-
     public TreeNode bstToGst(TreeNode root) {
         if (root.right != null) {
             bstToGst(root.right);
