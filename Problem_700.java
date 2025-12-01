@@ -22,7 +22,11 @@ class TreeNode {
 }
 
 public class Problem_700 {
- public TreeNode searchBST(TreeNode root, int val) {
-        
-    }   
+    public TreeNode searchBST(TreeNode root, int val) {
+
+        if (root == null || root.val == val) {
+            return root;
+        }
+        return val < root.val ? searchBST(root.left, val) : searchBST(root.right, val);
+    }
 }
