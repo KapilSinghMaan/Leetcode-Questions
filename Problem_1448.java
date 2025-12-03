@@ -22,9 +22,23 @@ class TreeNode {
 }
 
 public class Problem_1448 {
+    private int numGoodNodes=0;
     public int goodNodes(TreeNode root) {
-       
+        dfs(root,Integer.MIN_VALUE);
+        return numGoodNodes;
     }
 
-   
+    private void dfs(TreeNode root,int maxSoFar){
+        if (maxSoFar<=root.val) {
+            numGoodNodes++;
+        }
+
+        if (root.left!=null) {
+            dfs(root.left, Math.max(root.val, maxSoFar));
+        }
+
+        if (root.right!=null) {
+            dfs(root.right, Math.max(root.val, maxSoFar));
+        }
+    }
 }
