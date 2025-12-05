@@ -12,8 +12,37 @@ import java.util.PriorityQueue;
 
 public class MaxDiff_BW_Subset_Of_M_Ele {
 
-    
+    public static int minDiff(int[] arr, int m) {
+
+        PriorityQueue<Integer> minSubset = new PriorityQueue<>(Collections.reverseOrder());
+        PriorityQueue<Integer> maxSubset = new PriorityQueue<>();
+
+        for (int num : arr) {
+            minSubset.add(num);
+            if (minSubset.size() > m) {
+                minSubset.poll();
+            }
+
+            maxSubset.add(num);
+            if (maxSubset.size() > m) {
+                maxSubset.poll();
+            }
+        }
+        int minSum = 0;
+        while (!minSubset.isEmpty()) {
+            minSum += minSubset.poll();
+        }
+        int maxSum = 0;
+        while (!maxSubset.isEmpty()) {
+            maxSum += maxSubset.poll();
+        }
+
+        return maxSum - minSum;
+
+    }
+
     public static void main(String[] args) {
-    
+        int[] arr = { 1, 2, 3, 4, 5 };
+        System.out.println(minDiff(arr, 4));
     }
 }
