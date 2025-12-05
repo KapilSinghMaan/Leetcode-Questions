@@ -7,8 +7,31 @@
 
 // Explanation : First, connect ropes of length 2 and 3. Now we have three ropes of lengths 4, 6, 5. Now connect ropes of lengths 4 add 5. Now we have two ropes of lengths 6 and 9. Finally connect the two ropes and all ropes have connected.
 
+import java.util.PriorityQueue;
+
 public class Connect_N_Ropes_With_minCost {
+
+    public static int connectRopesMinCost(int[] arr) {
+        PriorityQueue<Integer> heap = new PriorityQueue<>();
+
+        for (int num : arr) {
+            heap.add(num);
+        }
+        int minCost = 0;
+        while (heap.size() > 1) {
+            int rope1 = heap.poll();
+            int rope2 = heap.poll();
+            int newRope = rope1 + rope2;
+            minCost = minCost + newRope;
+            heap.add(newRope);
+        }
+
+        return minCost;
+    }
+
     public static void main(String[] args) {
-        
+
+        int[] arr = { 4, 3, 2, 6 };
+        System.out.println(connectRopesMinCost(arr));
     }
 }
