@@ -7,9 +7,10 @@ import java.util.Arrays;
 public class Problem_300 {
 
     public int lengthOfLIS(int[] nums) {
-         if (nums == null || nums.length == 0) return 0;
+        if (nums == null || nums.length == 0)
+            return 0;
         int n = nums.length;
-        int[] dp = new int[n]; 
+        int[] dp = new int[n];
         Arrays.fill(dp, 1);
         int best = 1;
 
