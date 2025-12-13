@@ -15,8 +15,10 @@ public class Problem_300 {
         int best = 1;
 
         for (int i = 1; i < n; i++) {
-            for (int j = 0; j < i; j++) {
-                if (nums[j] < nums[i]) {
+            for (int j = 0; j < i; j++) 
+            {
+                if (nums[j] < nums[i]) 
+                {
                     dp[i] = Math.max(dp[i], dp[j] + 1);
                 }
             }
