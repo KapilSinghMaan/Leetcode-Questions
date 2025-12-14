@@ -6,7 +6,8 @@ import java.util.Arrays;
 
 public class Problem_300 {
 
-    public int lengthOfLIS(int[] nums) {
+    public int lengthOfLIS(int[] nums)
+    {
         if (nums == null || nums.length == 0)
             return 0;
         int n = nums.length;
