@@ -14,8 +14,9 @@ public class Problem_242 {
         for (char ch : t.toCharArray())
             count[ch - 'a']--;
 
-        for (int c : count)
+        for (int c : count){
             if (c != 0) return false;
+        }
         return true;
     }
 }
