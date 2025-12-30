@@ -12,7 +12,9 @@ public class Problem_242 {
             count[ch - 'a']++;
 
         for (char ch : t.toCharArray())
+        {
             count[ch - 'a']--;
+        }
 
         for (int c : count){
             if (c != 0) return false;
