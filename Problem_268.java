@@ -4,5 +4,6 @@
 
 public class Problem_268 {
     public int missingNumber(int[] nums) {
+        return 0;
     }
 }
