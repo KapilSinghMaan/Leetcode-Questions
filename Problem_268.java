@@ -16,7 +16,6 @@ public class Problem_268 {
         {
             xor ^= num;
         }
-        
         return xor;
     }
 }
