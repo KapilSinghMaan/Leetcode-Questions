@@ -11,7 +11,6 @@ public class Problem_268 {
         {
             xor ^= i;
         }
-        
         for (int num : nums)
         {
             xor ^= num;
