@@ -10,7 +10,6 @@ public class Problem_268 {
         for (int i = 0; i <= n; i++)
         {
             xor ^= i;
-            
         }
         for (int num : nums)   
         {
